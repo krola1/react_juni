@@ -1,33 +1,22 @@
-import "./App.css";
 import { useState } from "react";
+import "./App.css";
+import TodoForm from "./components/TodoForm";
+import TodoList from "./components/TodoList";
 
+// App.jsx owns shared states, and functions for editing theese.
+// As well as render order
 export default function App() {
-  const [count, setCount] = useState(0);
+  const [todos, setTodos] = useState([]);
 
-  const increaseCount = () => {
-    setCount((prevCount) => prevCount + 1);
-    setCount((prevCount) => prevCount + 1);
-
-    console.log(count);
-  };
-
-  const setToLars = () => {
-    setCount("Lars");
-  };
-  //--------------------------
-  let tradCount = 0;
-
-  const increaseTradCount = () => {
-    tradCount = tradCount + 1;
-    tradCount = tradCount + 1;
-    console.log(tradCount);
+  ///function for adding elements to array
+  const addTodo = (text) => {
+    setTodos((prev) => [...prev, text]);
   };
 
   return (
     <>
-      <h1 onClick={setToLars}>{count}</h1>
-      <button onClick={increaseCount}>increase</button>
-      <button>decrease</button>
+      <TodoForm onAdd={addTodo} />
+      <TodoList todos={todos} />
     </>
   );
 }
