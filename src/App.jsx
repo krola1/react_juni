@@ -10,13 +10,30 @@ export default function App() {
 
   ///function for adding elements to array
   const addTodo = (text) => {
-    setTodos((prev) => [...prev, text]);
+    const newTodo = {
+      id: crypto.randomUUID(),
+      title: text,
+      createdAt: Date.now(),
+      completed: false,
+      favorite: false,
+      description: "N/A",
+    };
+    setTodos((prev) => [...prev, newTodo]);
+  };
+
+  //toggles true/false fields, takes key as string value
+  const todoToggle = (id, key) => {
+    setTodos((prev) =>
+      prev.map((todo) =>
+        id === todo.id ? { ...todo, [key]: !todo[key] } : todo,
+      ),
+    );
   };
 
   return (
     <>
       <TodoForm onAdd={addTodo} />
-      <TodoList todos={todos} />
+      <TodoList todos={todos} todoToggle={todoToggle} />
     </>
   );
 }
