@@ -1,7 +1,10 @@
 import { useState } from "react";
+import { useTodo } from "../context/todoContext";
 
 // responsible for recieving user input
-export default function TodoForm({ onAdd }) {
+export default function TodoForm() {
+  // get function from context
+  const { addTodo: onAdd } = useTodo();
   //initialize state
   const [text, setText] = useState("");
 

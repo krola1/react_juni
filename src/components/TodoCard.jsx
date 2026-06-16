@@ -1,13 +1,15 @@
+import { useTodo } from "../context/todoContext";
+
 export default function TodoCard({
   title,
-
   createdAt,
   id,
   completed,
   favorite,
   description,
-  onToggle,
 }) {
+  // from context
+  const { todoToggle: onToggle } = useTodo();
   // format "Date.now()" into human readable format
   const date = new Date(createdAt).toLocaleString();
   return (
