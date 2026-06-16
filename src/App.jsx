@@ -10,6 +10,7 @@ export default function App() {
 
   ///function for adding elements to array
   const addTodo = (text) => {
+    //todo object
     const newTodo = {
       id: crypto.randomUUID(),
       title: text,
@@ -20,7 +21,7 @@ export default function App() {
     };
     setTodos((prev) => [...prev, newTodo]);
   };
-
+  //NEW !!
   //toggles true/false fields, takes key as string value
   const todoToggle = (id, key) => {
     setTodos((prev) =>

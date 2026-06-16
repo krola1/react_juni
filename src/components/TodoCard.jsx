@@ -8,6 +8,7 @@ export default function TodoCard({
   description,
   onToggle,
 }) {
+  // format "Date.now()" into human readable format
   const date = new Date(createdAt).toLocaleString();
   return (
     <div style={{ border: "solid white" }}>
@@ -31,7 +32,7 @@ export default function TodoCard({
         />
         favorite
       </label>
-      <section>description{description}</section>
+      <section>Description{description}</section>
       <button>Edit</button>
       <button>Delete</button>
     </div>
