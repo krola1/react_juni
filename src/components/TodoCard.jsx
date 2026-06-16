@@ -14,6 +14,7 @@ export default function TodoCard({
     <div style={{ border: "solid white" }}>
       <h1>{title}</h1>
       <p>{date}</p>
+      {/* -------------------------------------------- */}
       <label>
         <input
           type="checkbox"
@@ -23,6 +24,8 @@ export default function TodoCard({
         />
         completed
       </label>
+
+      {/* ------------------------------------ */}
       <label>
         <input
           type="checkbox"

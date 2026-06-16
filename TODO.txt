@@ -1,6 +1,12 @@
- todo-context
- localstorage custom hook.
-  filters
-  sorters
-  grid?
-  
+todo-context
+
+localstorage custom hook.
+
+edit
+delete
+
+
+filters
+sorters
+grid?
+
