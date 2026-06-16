@@ -20,6 +20,7 @@ export const useLocalstorage = (key, initialValue = []) => {
         " could not rertrive data from localstorage, error: ",
         error,
       );
+      return initialValue;
     }
   });
 

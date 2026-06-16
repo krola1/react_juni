@@ -1,10 +1,11 @@
 /* eslint-disable react-refresh/only-export-components */
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext } from "react";
+import { useLocalstorage } from "../hooks/useLocalstorage";
 
 const TodoContext = createContext(null);
 
 export const TodoProvider = ({ children }) => {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useLocalstorage("todo_juni");
 
   ///function for adding elements to array
   const addTodo = (text) => {
@@ -28,11 +29,16 @@ export const TodoProvider = ({ children }) => {
       ),
     );
   };
+  // filter returns all instances where todo.id DOES NOT match provided id
+  const deleteTodo = (id) => {
+    setTodos((prev) => prev.filter((todo) => todo.id !== id));
+  };
 
   const value = {
     todos,
     addTodo,
     todoToggle,
+    deleteTodo,
   };
   return <TodoContext.Provider value={value}>{children}</TodoContext.Provider>;
 };

@@ -9,7 +9,7 @@ export default function TodoCard({
   description,
 }) {
   // from context
-  const { todoToggle: onToggle } = useTodo();
+  const { todoToggle: onToggle, deleteTodo: onDelete } = useTodo();
   // format "Date.now()" into human readable format
   const date = new Date(createdAt).toLocaleString();
   return (
@@ -39,7 +39,7 @@ export default function TodoCard({
       </label>
       <section>Description{description}</section>
       <button>Edit</button>
-      <button>Delete</button>
+      <button onClick={() => onDelete(id)}>Delete</button>
     </div>
   );
 }
